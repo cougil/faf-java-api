@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
  * Adapter between Spring's {@link UserDetailsService} and FAF's {@code login} table.
  */
 @Service
+@Transactional
 public class FafUserDetailsService implements UserDetailsService {
 
   private final UserRepository userRepository;
